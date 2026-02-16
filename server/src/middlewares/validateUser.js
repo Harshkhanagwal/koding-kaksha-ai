@@ -31,3 +31,7 @@ exports.validateUser = [
     next();
   }
 ];
+
+
+//authenticate user- 
+// authenticate admin - 2 middelware - one for check that it is admin with all power to perform curd operation //// and one for check that admin have only read only access.
