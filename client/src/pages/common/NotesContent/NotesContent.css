@@ -1,0 +1,162 @@
+.course-details-page {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.course-details-container {
+  width: 100%;
+  max-width: 900px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
+}
+
+.course-main-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #111827;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.course-main-title .course-icon{
+    font-size: 40px;
+}
+
+.course-rich-content {
+  line-height: 1.8;
+  font-size: 16px;
+  color: #374151;
+}
+
+
+.course-rich-content h1 {
+  font-size: 26px;
+  margin-top: 30px;
+  margin-bottom: 16px;
+}
+
+.course-rich-content h2 {
+  font-size: 22px;
+  margin-top: 28px;
+  margin-bottom: 14px;
+  color: #111827;
+}
+
+.course-rich-content h3 {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+
+.course-rich-content p {
+  margin-bottom: 16px;
+}
+
+
+.course-rich-content ul {
+  padding-left: 20px;
+  margin-bottom: 18px;
+}
+
+.course-rich-content li {
+  margin-bottom: 8px;
+}
+
+
+.course-rich-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.course-rich-content table th,
+.course-rich-content table td {
+  border: 1px solid #e5e7eb;
+  padding: 10px;
+  text-align: left;
+}
+
+.course-rich-content table th {
+  background: #f9fafb;
+  font-weight: 600;
+}
+
+
+.course-rich-content pre {
+  background: #111827;
+  color: #f9fafb;
+  padding: 18px;
+  border-radius: 12px;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+.course-rich-content code {
+  font-family: "Fira Code", monospace;
+  font-size: 14px;
+}
+
+
+.back-button {
+  background: transparent;
+  border: none;
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+  padding: 0;
+  transition: 0.2s ease;
+}
+
+.back-button:hover {
+  opacity: 0.7;
+}
+
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.edit-button {
+  background: #dbeafe;
+  color: #2563eb;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.edit-button:hover {
+  background: #bfdbfe;
+}
+
+.delete-button {
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.delete-button:hover {
+  background: #fecaca;
+}

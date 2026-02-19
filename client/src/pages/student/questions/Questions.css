@@ -1,0 +1,150 @@
+.questions-page {
+  padding: 24px;
+}
+
+.topic-ribbon {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.topic-pill {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.topic-pill:hover {
+  background: #f3f4f6;
+}
+
+.topic-pill.active {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.search-bar input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.1);
+}
+
+.table-container {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table-container th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  background: #f9fafb;
+  color: #374151;
+}
+
+.table-container td {
+  padding: 14px 16px;
+  font-size: 14px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.table-container tbody tr:hover {
+  background: #fafafa;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.table-container th:nth-child(1),
+.table-container td:nth-child(1) {
+  width: 50%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table-container th:nth-child(2),
+.table-container td:nth-child(2) {
+  width: 20%;
+}
+
+.table-container th:nth-child(3),
+.table-container td:nth-child(3) {
+  width: 30%;
+}
+
+.difficulty {
+  padding: 6px 12px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 70px;
+  text-align: center;
+  display: inline-block;
+}
+
+.difficulty.easy {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.difficulty.medium {
+  background: #fffbeb;
+  color: #d97706;
+}
+
+.difficulty.hard {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.tag {
+  background: #eef2ff;
+  color: #4f46e5;
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 12px;
+  margin-right: 6px;
+  display: inline-block;
+}
+
+.no-data {
+  text-align: center;
+  padding: 20px;
+  color: #6b7280;
+}
+
+
+.filter-ribbon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
