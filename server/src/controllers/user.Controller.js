@@ -54,7 +54,85 @@ const createUser = async (req, res) => {
 }
 
 
+const updateUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, email, password, role, isReadOnly } = req.body;
+
+    // Check if user exists
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({
+        message: "User not found"
+      });
+    }
+
+    // If email is being updated, check if it already exists
+    if (email && email !== user.email) {
+      const existingUser = await User.findOne({ email });
+      if (existingUser) {
+        return res.status(400).json({
+          message: "Email already in use"
+        });
+      }
+    }
+
+    // If password is updated → hash it
+    let hashedPassword = user.password;
+    if (password) {
+      hashedPassword = await bcrypt.hash(password, 10);
+    }
+
+    // Update fields
+    user.name = name || user.name;
+    user.email = email || user.email;
+    user.password = hashedPassword;
+    user.role = role || user.role;
+    user.isReadOnly = isReadOnly !== undefined ? isReadOnly : user.isReadOnly;
+
+    await user.save();
+
+    const userRes = user.toObject();
+    delete userRes.password;
+
+    res.status(200).json({
+      success: true,
+      data: userRes
+    });
+
+  } catch (err) {
+    res.status(500).json({
+      message: err.message
+    });
+  }
+};
+
+const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const user = await User.findById(id);
+
+    if (!user) {
+      return res.status(404).json({
+        message: "User not found"
+      });
+    }
+
+    await User.findByIdAndDelete(id);
+
+    res.status(200).json({
+      success: true,
+      message: "User deleted successfully"
+    });
+
+  } catch (err) {
+    res.status(500).json({
+      message: err.message
+    });
+  }
+};
 
 module.exports = {
-    sayHii, allUsers, createUser
+    sayHii, allUsers, createUser, deleteUser, updateUser
 }
