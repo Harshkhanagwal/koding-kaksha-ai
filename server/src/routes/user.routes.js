@@ -14,19 +14,15 @@ router.put("/update/:id", userController.updateUser)
 router.delete("/delete/:id", userController.deleteUser)
 
 
-// Any logged-in user
-router.get("/profile", authenticateUser, getProfile);
+// // Any logged-in user
+// router.get("/profile", authenticateUser, userController.getProfile);
+// router.post("/create-user", adminFullAccess, createUser);
+// router.put("/update-user/:id", adminFullAccess, updateUser);
+// router.delete("/delete-user/:id", adminFullAccess, deleteUser);
 
-
-
-// Full CRUD access
-router.post("/create-user", adminFullAccess, createUser);
-router.put("/update-user/:id", adminFullAccess, updateUser);
-router.delete("/delete-user/:id", adminFullAccess, deleteUser);
-
-// Read-only access
-router.get("/all-users", adminReadOnly, getAllUsers);
-// Only read-only users
-router.get("/view-dashboard", userReadOnly, viewDashboard);
+// // Read-only access
+// router.get("/all-users", adminReadOnly, getAllUsers);
+// // Only read-only users
+// router.get("/view-dashboard", userReadOnly, viewDashboard);
 
 module.exports = router;

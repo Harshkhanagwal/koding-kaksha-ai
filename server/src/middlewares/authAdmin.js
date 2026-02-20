@@ -1,7 +1,6 @@
 const jwt = require("jsonwebtoken");
-const User = require("../models/User"); // adjust path if needed
+const User = require("../models/userModel"); 
 
-// 🔐 Middleware 1: Admin with FULL access (CRUD allowed)
 exports.adminFullAccess = async (req, res, next) => {
   try {
     const token = req.headers.authorization?.split(" ")[1];
