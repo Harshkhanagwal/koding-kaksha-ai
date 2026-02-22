@@ -24,7 +24,7 @@ createQuestion = async (req, res) => {
 getAllQuestions = async (req, res) => {
   try {
     const questions = await Question.find()
-      .select("-testcases -content"); // hide heavy fields
+      .select("-testcases -content"); 
 
     res.status(200).json({
       success: true,

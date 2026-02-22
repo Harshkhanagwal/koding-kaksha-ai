@@ -1,160 +1,164 @@
 import React, { useState, useEffect } from "react";
 import Editor from "@monaco-editor/react";
 import axios from "axios";
-import './CodeEditor.css'
+import "./CodeEditor.css";
 
-const CodeEditor = ({ code, setCode }) => {
-  const [languages, setLanguages] = useState([]);
-  const [selectedLangData, setSelectedLangData] = useState(null);
-  const [language, setLanguage] = useState("javascript");
+const CodeEditor = ({
+    code,
+    setCode,
+    language,
+    setLanguage,
+    onSubmit,
+    running,             
+    isSubmitted,
+    setIsSubmitted,
+    setVerdict
+}) => {
 
-  const [input, setInput] = useState("");
-  const [output, setOutput] = useState("");
-  const [running, setRunning] = useState(false);
-  const [loadingLangs, setLoadingLangs] = useState(false);
+    const [input, setInput] = useState("");
+    const [output, setOutput] = useState("");
+    const [isRunning, setIsRunning] = useState(false); // run loading
 
-  const API = axios.create({
-    baseURL: "https://emkc.org/api/v2/piston",
-  });
+    const languages = [
+        { label: "JavaScript", value: "javascript" },
+        { label: "Python", value: "python" },
+        { label: "Java", value: "java" },
+        { label: "C++", value: "cpp" }
+    ];
 
-  useEffect(() => {
-    const fetchLanguages = async () => {
-      setLoadingLangs(true);
-      try {
-        const res = await API.get("/runtimes");
+    const handleRun = async () => {
+        if (!code.trim()) return;
 
-        const uniqueLangs = res.data.filter((value, index, self) =>
-          index === self.findIndex((t) => t.language === value.language)
-        );
+        setIsRunning(true);
+        setOutput("");
 
-        setLanguages(uniqueLangs);
+        try {
+            const response = await axios.post(
+                "https://code-runner.p.rapidapi.com/run_code",
+                {
+                    code,
+                    language,
+                    input
+                },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "x-rapidapi-key": import.meta.env.VITE_RAPID_API_KEY,
+                        "x-rapidapi-host": "code-runner.p.rapidapi.com"
+                    }
+                }
+            );
 
-        if (uniqueLangs.length > 0) {
-          setSelectedLangData(uniqueLangs[0]);
-          setLanguage(uniqueLangs[0].language);
+            if (response.data.output) {
+                setOutput(response.data.output);
+            } else if (response.data.stderr) {
+                setOutput("❌ Error:\n" + response.data.stderr);
+            } else {
+                setOutput("No Output");
+            }
+
+        } catch (error) {
+            console.error(error);
+            setOutput("❌ API Error or Rate Limit Exceeded");
+        } finally {
+            setIsRunning(false);
         }
-
-      } catch (err) {
-        console.error("Failed to fetch languages", err);
-      } finally {
-        setLoadingLangs(false);
-      }
     };
 
-    fetchLanguages();
-  }, []);
 
+    useEffect(() => {
+        if (isSubmitted) {
+            setIsSubmitted(false);
+        }
+    }, [code]);
 
-  const handleRun = async () => {
-    if (!selectedLangData) return;
+    return (
+        <>
 
-    setRunning(true);
-    setOutput("");
+            <div className="editor-header">
+                <div className="left-section">
+                    <div className="select-list">
+                        <label>Language:</label>
+                        <select
+                            value={language}
+                            onChange={(e) => setLanguage(e.target.value)}
+                        >
+                            {languages.map((lang, index) => (
+                                <option key={index} value={lang.value}>
+                                    {lang.label}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                </div>
 
-    try {
-      const res = await API.post("/execute", {
-        language: selectedLangData.language,
-        version: selectedLangData.version,
-        files: [{ content: code }],
-        stdin: input,
-      });
+                <div className="right-section">
+                    <button
+                        className="editor-button run-btn"
+                        onClick={() => {
+                            handleRun()
+                             setIsSubmitted(false);
+                                setVerdict(null);
+                        }}
+                        disabled={isRunning}
+                    >
+                        {isRunning ? "Running..." : "Run"}
+                    </button>
 
-      setOutput(
-        res.data.run.output ||
-          res.data.run.stderr ||
-          "Code executed successfully."
-      );
-    } catch (err) {
-      setOutput("Error executing code.");
-      console.error(err);
-    } finally {
-      setRunning(false);
-    }
-  };
+                    <button
+                        className="editor-button submit-btn"
+                        onClick={onSubmit}
+                        disabled={running}
+                    >
+                        {running ? "Submitting..." : "Submit"}
+                    </button>
+                </div>
+            </div>
 
+            {/* MONACO EDITOR */}
+            <Editor
+                height="60vh"
+                language={language === "cpp" ? "cpp" : language}
+                value={code}
+                onChange={(value) => setCode(value)}
+                theme="vs-dark"
+            />
 
-  const handleLanguageChange = (e) => {
-    const langObj = JSON.parse(e.target.value);
-    setSelectedLangData(langObj);
-    setLanguage(langObj.language);
-  };
+            {/* INPUT / OUTPUT SECTION */}
+            {isSubmitted ? (
+                <div className="submission-closed">
+                    <div className="submission-header">
+                        <span>Submission Mode</span>
+                        <button
+                            className="close-btn"
+                            onClick={() => {
+                                setIsSubmitted(false);
+                                setVerdict(null);
+                            }}
+                        >
+                            ✖
+                        </button>
+                    </div>
+                </div>
+            ) : (
+                <div className="execution-area">
+                    <div className="input-area">
+                        <h3>Custom Input</h3>
+                        <textarea
+                            placeholder="Enter your input here"
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                        />
+                    </div>
 
-  return (
-    <>
-
-      <div className="editor-header">
-        <div className="left-section">
-          <div className="select-list">
-            <label>Language:</label>
-            <select
-              onChange={handleLanguageChange}
-              value={
-                selectedLangData
-                  ? JSON.stringify(selectedLangData)
-                  : ""
-              }
-            >
-              {loadingLangs && <option>Loading...</option>}
-
-              {languages.map((lang, index) => (
-                <option
-                  key={index}
-                  value={JSON.stringify(lang)}
-                >
-                  {lang.language} ({lang.version})
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-
-        <div className="right-section">
-          <button
-            className="editor-button run-btn"
-            onClick={handleRun}
-            disabled={running || !selectedLangData}
-          >
-            {running ? "Running..." : "Run"}
-          </button>
-
-          <button
-            className="editor-button submit-btn"
-            disabled
-          >
-            Submit
-          </button>
-        </div>
-      </div>
-
-      <Editor
-        height="60vh"
-        language={language}
-        value={code}
-        onChange={(value) => setCode(value)}
-        theme="vs-dark"
-      />
-
-      <div className="execution-area">
-        <div className="input-area">
-          <h3>Input</h3>
-          <textarea
-            placeholder="Enter your input here"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-          />
-        </div>
-
-        <div className="output-area">
-          <h3>Output</h3>
-          {output ? (
-            <pre>{output}</pre>
-          ) : (
-            <p>Run your code to see the output</p>
-          )}
-        </div>
-      </div>
-    </>
-  );
+                    <div className="output-area">
+                        <h3>Output</h3>
+                        {output ? <pre>{output}</pre> : <p>Run your code</p>}
+                    </div>
+                </div>
+            )}
+        </>
+    );
 };
 
 export default CodeEditor;

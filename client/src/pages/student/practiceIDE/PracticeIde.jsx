@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import IDEheader from "../../../Components/IDEheader/IDEheader";
 import CodeEditor from "../../../Components/Codeeditor/CodeEditor";
@@ -12,11 +12,14 @@ const PracticeIdle = () => {
   );
 
 
+  useEffect(() => {
+    localStorage.setItem("savedCode", code);
+  }, [code]);
+
+ 
   const [chatResponse, setChatResponse] = useState("");
   const [userQuestion, setUserQuestion] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
-
 
   const [leftWidth, setLeftWidth] = useState(70);
   const containerRef = useRef(null);
@@ -45,18 +48,20 @@ const PracticeIdle = () => {
     window.addEventListener("mouseup", stopResizing);
   };
 
+  /* =========================
+     AI LOGIC
+  ========================= */
   const explainCode = async () => {
-    if (!userQuestion.trim() && !code) return;
+    if (!userQuestion.trim() && !code.trim()) return;
 
     setIsLoading(true);
     setChatResponse("");
-    setUserQuestion("");
 
     try {
       const response = await fetch(import.meta.env.VITE_API_URL, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           contents: [
@@ -64,7 +69,6 @@ const PracticeIdle = () => {
               parts: [
                 {
                   text: `
-Instructions:
 You are a friendly programming mentor.
 Do not provide full solutions.
 Give hints and explain logic clearly.
@@ -75,37 +79,36 @@ User Question: ${
 
 Code:
 ${code}
-                  `,
-                },
-              ],
-            },
-          ],
-        }),
+                  `
+                }
+              ]
+            }
+          ]
+        })
       });
 
       const data = await response.json();
 
       if (response.status === 429) {
-        setChatResponse(
-          "Quota exceeded. Please wait before trying again."
-        );
+        setChatResponse("Quota exceeded. Please wait before trying again.");
         return;
       }
 
-      if (data.candidates && data.candidates.length > 0) {
-        const aiText =
-          data.candidates[0].content.parts[0].text;
-        setChatResponse(aiText);
+      if (data?.candidates?.length > 0) {
+        setChatResponse(data.candidates[0].content.parts[0].text);
       } else {
         setChatResponse("AI could not generate a response.");
       }
+
     } catch (error) {
       console.error(error);
       setChatResponse("Error connecting to AI.");
     } finally {
       setIsLoading(false);
+      setUserQuestion("");
     }
   };
+
 
   return (
     <>
@@ -120,6 +123,7 @@ ${code}
           <CodeEditor
             code={code}
             setCode={setCode}
+            questionId={id} 
           />
         </div>
 
