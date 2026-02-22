@@ -8,13 +8,18 @@ import Courses from '../pages/common/Courses/Courses'
 import CreateNotes from '../pages/lecturer/create-notes/CreateNotes'
 import Questions from '../pages/student/questions/Questions'
 import NotesContent from '../pages/common/NotesContent/NotesContent'
+import AdminPanel from '../pages/admin/adminPanel/AdminPanel'
+import ProblemPanel from '../pages/student/problemPanel/ProblemPanel'
+import PracticeIdle from '../pages/student/practiceIDE/PracticeIde'
 
 
 const AppRoutes = () => {
   return (
     <Routes>
 
-      <Route path='/' element={<h1>Home</h1>} />
+      <Route path='/' element={<PublicRoute>
+        <h1>Home</h1>
+      </PublicRoute>} />
 
       <Route
         path='/login'
@@ -33,12 +38,24 @@ const AppRoutes = () => {
           </ProtectedRoutes>
         }
       >
-        <Route path='notes' element={<Courses />}> </Route>
-        <Route path='create-notes' element={<CreateNotes />}></Route>
-        <Route path='edit-notes/:id' element={<CreateNotes />}></Route>
-        <Route path='questions' element={<Questions/>}></Route>
-        <Route path='notes/:id' element={<NotesContent></NotesContent>}></Route>
+        <Route path='admin-panel' element={<AdminPanel />} />
+        <Route path='notes' element={<Courses />} />
+        <Route path='create-notes' element={<CreateNotes />} />
+        <Route path='edit-notes/:id' element={<CreateNotes />} />
+        <Route path='questions' element={<Questions />} />
+        <Route path='notes/:id' element={<NotesContent></NotesContent>} />
       </Route>
+
+      <Route path='question/:id' element={
+        <ProtectedRoutes>
+          <ProblemPanel />
+        </ProtectedRoutes>
+      } />
+      <Route path='practice-ide' element={
+        <ProtectedRoutes>
+          <PracticeIdle />
+        </ProtectedRoutes>
+      } />
 
       <Route
         path='*'

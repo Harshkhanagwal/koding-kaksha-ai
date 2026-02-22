@@ -1,0 +1,98 @@
+/* =========================
+   QUESTION CONTENT PANEL
+========================= */
+
+.question-content {
+    background: #111827;
+    padding: 24px;
+    height: 100%;
+    overflow-y: auto;
+    border-right: 1px solid #1f2937;
+}
+
+/* Remove hover floating effect for IDE feel */
+.question-content:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* =========================
+   TOPIC BADGE
+========================= */
+
+.question-topic {
+    background: #1f2937;
+    font-size: 12px;
+    padding: 6px 14px;
+    color: #60a5fa;
+    display: inline-block;
+    border-radius: 50px;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    border: 1px solid #374151;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.quesiton-title {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: #f3f4f6;
+}
+
+/* =========================
+   QUESTION DETAILS
+========================= */
+
+.question-details {
+    font-size: 14px;
+    margin-top: 15px;
+    color: #d1d5db;
+    line-height: 1.7;
+}
+
+/* Optional: inline code style inside question */
+.question-details code {
+    background: #1f2937;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 13px;
+    color: #22c55e;
+}
+
+
+
+.question-level {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 14px;
+}
+
+/* Easy */
+.question-level-Easy {
+    background-color: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+/* Medium */
+.question-level-Medium {
+    background-color: rgba(234, 179, 8, 0.15);
+    color: #facc15;
+    border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+/* Hard */
+.question-level-Hard {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}

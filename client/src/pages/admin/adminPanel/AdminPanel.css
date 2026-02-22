@@ -1,0 +1,41 @@
+.tab-buttons{
+     border-radius: 50px;
+     padding: 5px;
+     border: 2px solid var(--color-accent);
+     position: relative;
+     z-index: 9999;
+}
+
+.tab-button{
+    border: none;
+    background-color: transparent;
+    height: 30px;
+    width: 150px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.span-bg{
+    background-color: var(--color-primary-light);
+    position: absolute;
+    height: 30px;
+    width: 150px;
+    top: 5px;
+    border-radius: 50px;
+    z-index: -1;
+    opacity: 0.6;
+    transition: ease 0.3s;
+
+}
+
+.position-1{
+    left: 5px;
+}
+
+.position-2{
+    left: 155px;
+}
+
+.position-3{
+    left: 305px;
+}

@@ -15,7 +15,7 @@ const NotesContent = () => {
   const { role } = useSelector((state) => state.auth);
 
   const canManage =
-    role === "admin" || role === "lecturer";
+    role === "admin" || role === "lecturer" || role === "superAdmin";
 
 
   useEffect(() => {

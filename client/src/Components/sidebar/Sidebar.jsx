@@ -30,10 +30,10 @@ const Sidebar = () => {
 
                 <nav className="sidebar-nav">
 
-                    {/* <NavLink to="/dashboard" className="nav-item">
-            <MdDashboard />
-            <span>Dashboard</span>
-          </NavLink> */}
+                    <NavLink to="/dashboard/admin-panel" className="nav-item">
+                        <MdDashboard />
+                        <span>Admin Panel</span>
+                    </NavLink>
 
                     <NavLink to="/dashboard/notes" className="nav-item">
                         <MdMenuBook />
@@ -46,7 +46,7 @@ const Sidebar = () => {
                     </NavLink>
 
 
-                    {(role === "admin" || role === "lecturer") && (
+                    {(role === "admin" || role === "lecturer" || role === "superAdmin") && (
                         <NavLink to="/dashboard/create-notes" className="nav-item">
                             <LiaNotesMedicalSolid />
                             <span>Create Notes</span>
@@ -54,7 +54,7 @@ const Sidebar = () => {
                     )}
 
 
-                    <NavLink to="/dashboard/practice" className="nav-item">
+                    <NavLink to="/practice-ide" className="nav-item">
                         <BiCodeBlock />
                         <span>online IDE</span>
                     </NavLink>

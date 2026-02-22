@@ -4,6 +4,7 @@ const userRouter = require("./user.routes")
 const authRouter = require("./auth.routes")
 const courseRouter = require('./course.routes')
 const subjectRouter = require('./subject.routes')
+const questionRouter = require("./question.routes")
 const router = express.Router();
 
 router.use("/health", healthRouter);
@@ -11,5 +12,6 @@ router.use("/users", userRouter)
 router.use("/course",  courseRouter)
 router.use("/auth", authRouter )
 router.use("/subject", subjectRouter )
+router.use("/questions", questionRouter )
 
 module.exports = router;

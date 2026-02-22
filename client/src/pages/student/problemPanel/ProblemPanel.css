@@ -1,0 +1,127 @@
+
+
+.problem-ide-main {
+    display: flex;
+    height: calc(100vh - 54.14px);
+    width: 100%;
+    position: relative;
+    background: #0f172a;
+}
+
+.left-panel {
+    overflow: auto;
+    background-color: #111827;
+    border-right: 1px solid #1f2937;
+}
+
+
+.right-panel {
+    background: #0f172a;
+    color: #e5e7eb;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.resizer {
+    width: 5px;
+    cursor: col-resize;
+    background: #1f2937;
+    transition: background 0.2s ease;
+}
+
+.resizer:hover {
+    background: #3b82f6;
+}
+
+.question-content {
+    background-color: #111827;
+    padding: 24px;
+    height: 100%;
+    color: #d1d5db;
+}
+
+.question-topic {
+    background-color: #1f2937;
+    font-size: 12px;
+    padding: 6px 14px;
+    color: #60a5fa;
+    display: inline-block;
+    border-radius: 50px;
+    border: 1px solid #374151;
+}
+
+
+.editor-header {
+    background-color: #111827;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid #1f2937;
+    font-family: Arial, sans-serif;
+}
+
+
+.select-list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #e5e7eb;
+}
+
+.select-list select {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #374151;
+    outline: none;
+    cursor: pointer;
+    background-color: #1f2937;
+    color: #f3f4f6;
+    transition: 0.2s ease;
+}
+
+.select-list select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+
+.right-section {
+    display: flex;
+    gap: 12px;
+}
+
+.editor-button {
+    padding: 7px 16px;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+
+.run-btn {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.run-btn:hover {
+    background-color: #2563eb;
+}
+
+
+.submit-btn {
+    background-color: #6b7280;
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: #4b5563;
+}
