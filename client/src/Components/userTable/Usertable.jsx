@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../../services/axiosInstance";
-import "./userTable.css";
+import "./Usertable.css";
 
 const UserTable = () => {
   const [users, setUsers] = useState([]);
