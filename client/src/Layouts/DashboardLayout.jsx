@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from '../Components/sidebar/sidebar'
+import Sidebar from '../Components/sidebar/Sidebar'
 import { Outlet } from 'react-router-dom'
 import { BiCodeAlt } from "react-icons/bi";
 
