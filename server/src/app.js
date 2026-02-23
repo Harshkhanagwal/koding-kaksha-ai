@@ -4,11 +4,12 @@ const notFound = require("./middlewares/notFound");
 const errorHandler = require("./middlewares/errorHandler");
 const cors = require("cors");
 
+
 const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.CORS_URL,
     credentials: true, 
   })
 );
