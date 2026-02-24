@@ -1,0 +1,142 @@
+/* ========================= */
+/* HERO SECTION */
+/* ========================= */
+
+.kk-hero {
+  margin-top: 70px; /* space for fixed navbar */
+  padding: 120px 20px;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    #f6f4ff 0%,
+    #ffffff 50%,
+    #f6f4ff 100%
+  );
+}
+
+/* Optional container (if not global) */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ========================= */
+/* CONTENT */
+/* ========================= */
+
+.kk-hero-content h1 {
+  font-size: 56px;
+  line-height: 1.2;
+  color: #1b1340;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.kk-hero-content p {
+  font-size: 20px;
+  color: #4b3fa6;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  line-height: 1.6;
+}
+
+/* ========================= */
+/* BUTTONS */
+/* ========================= */
+
+.kk-hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.kk-primary {
+  background: linear-gradient(90deg, #6d4aff, #8f6bff);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.kk-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(109, 74, 255, 0.35);
+}
+
+.kk-secondary {
+  background: transparent;
+  border: 2px solid #6d4aff;
+  color: #6d4aff;
+  padding: 14px 32px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.kk-secondary:hover {
+  background: #6d4aff;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(109, 74, 255, 0.25);
+}
+
+/* ========================= */
+/* RESPONSIVE DESIGN */
+/* ========================= */
+
+@media (max-width: 1024px) {
+  .kk-hero-content h1 {
+    font-size: 46px;
+  }
+
+  .kk-hero-content p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kk-hero {
+    padding: 100px 20px;
+  }
+
+  .kk-hero-content h1 {
+    font-size: 36px;
+  }
+
+  .kk-hero-content p {
+    font-size: 16px;
+  }
+
+  .kk-hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .kk-primary,
+  .kk-secondary {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .kk-hero {
+    padding: 80px 15px;
+  }
+
+  .kk-hero-content h1 {
+    font-size: 28px;
+  }
+
+  .kk-hero-content p {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,36 @@
+.kk-stats {
+  padding: 40px 8%;
+  background: linear-gradient(135deg, #6d4aff, #8f6bff);
+  color: white;
+  text-align: center;
+}
+
+.kk-stats-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.kk-stat h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.kk-stat p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+  .kk-stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .kk-stats-container {
+    grid-template-columns: 1fr;
+  }
+}

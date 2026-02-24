@@ -1,0 +1,145 @@
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+.kk-footer {
+  background: #1b1340;
+  color: #ffffff;
+  padding: 80px 8% 40px 8%;
+  position: relative;
+}
+
+/* Gradient top border */
+.kk-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #6d4aff, #8f6bff);
+}
+
+/* Container */
+.kk-footer-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Top Section */
+.kk-footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+/* Brand */
+.kk-footer-brand h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #6d4aff, #8f6bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.kk-footer-brand p {
+  color: #b9b4ff;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* Links */
+.kk-footer-links h4,
+.kk-footer-social h4 {
+  margin-bottom: 18px;
+  font-size: 16px;
+}
+
+.kk-footer-links a {
+  display: block;
+  text-decoration: none;
+  color: #b9b4ff;
+  margin-bottom: 10px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.kk-footer-links a:hover {
+  color: #ffffff;
+  padding-left: 5px;
+}
+
+/* Social Icons */
+.kk-social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.kk-social-icons a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+
+.kk-social-icons a:hover {
+  background: linear-gradient(135deg, #6d4aff, #8f6bff);
+  transform: translateY(-4px);
+}
+
+/* Bottom Section */
+.kk-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 13px;
+  color: #b9b4ff;
+}
+
+/* Created By */
+.kk-created a {
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.kk-created a:hover {
+  color: #8f6bff;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 900px) {
+  .kk-footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .kk-footer {
+    padding: 60px 6% 30px 6%;
+  }
+
+  .kk-footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .kk-footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}

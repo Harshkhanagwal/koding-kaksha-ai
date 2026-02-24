@@ -1,0 +1,58 @@
+.kk-how {
+  padding: 120px 8%;
+  background: #f9f8ff;
+  text-align: center;
+}
+
+.kk-how-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.kk-how h2 {
+  font-size: 40px;
+  margin-bottom: 70px;
+  color: #1b1340;
+}
+
+.kk-how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.kk-how-card {
+  background: white;
+  padding: 45px 30px;
+  border-radius: 22px;
+  transition: 0.3s ease;
+  box-shadow: 0 10px 30px rgba(109, 74, 255, 0.08);
+}
+
+.kk-how-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(109, 74, 255, 0.18);
+}
+
+.kk-how-icon {
+  font-size: 30px;
+  color: #6d4aff;
+  margin-bottom: 20px;
+}
+
+.kk-how-card h3 {
+  margin-bottom: 15px;
+  color: #3e2c84;
+}
+
+.kk-how-card p {
+  color: #5b4fcf;
+  font-size: 15px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .kk-how-grid {
+    grid-template-columns: 1fr;
+  }
+}

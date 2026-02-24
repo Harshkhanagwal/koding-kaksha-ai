@@ -1,0 +1,217 @@
+/* ========================= */
+/* HEADER BASE */
+/* ========================= */
+
+.kk-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 18px 8%;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.kk-header.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 35px rgba(109, 74, 255, 0.15);
+}
+
+.kk-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ========================= */
+/* LOGO */
+/* ========================= */
+
+.kk-logo {
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(90deg, #6d4aff, #8f6bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ========================= */
+/* DESKTOP LINKS */
+/* ========================= */
+
+.kk-links {
+  display: flex;
+  gap: 35px;
+  align-items: center;
+}
+
+.kk-links a {
+  text-decoration: none;
+  color: #2d1f66;
+  font-weight: 500;
+  font-size: 15px;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.kk-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #6d4aff;
+  transition: width 0.3s ease;
+}
+
+.kk-links a:hover::after {
+  width: 100%;
+}
+
+.kk-links a:hover {
+  color: #6d4aff;
+}
+
+/* ========================= */
+/* BUTTON */
+/* ========================= */
+
+.kk-nav-btn {
+  background: linear-gradient(90deg, #6d4aff, #8f6bff);
+  color: #ffffff;
+  padding: 10px 26px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.kk-nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(109, 74, 255, 0.35);
+}
+
+/* ========================= */
+/* DROPDOWN */
+/* ========================= */
+
+.kk-dropdown {
+  position: relative;
+}
+
+.kk-dropdown-menu {
+  position: absolute;
+  top: 140%;
+  left: 0;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 12px 0;
+  min-width: 200px;
+  box-shadow: 0 20px 45px rgba(109, 74, 255, 0.15);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.kk-dropdown:hover .kk-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.kk-dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.kk-dropdown-menu a:hover {
+  background: #f6f4ff;
+  color: #6d4aff;
+}
+
+/* ========================= */
+/* HAMBURGER */
+/* ========================= */
+
+.kk-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.kk-hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #6d4aff;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+.kk-hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.kk-hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.kk-hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ========================= */
+/* MOBILE MENU */
+/* ========================= */
+
+.kk-mobile-menu {
+  position: fixed;
+  top: 70px;
+  right: -100%;
+  width: 250px;
+  height: 100vh;
+  background: white;
+  box-shadow: -10px 0 40px rgba(109, 74, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  padding: 40px 25px;
+  gap: 25px;
+  transition: 0.4s ease;
+}
+
+.kk-mobile-menu.open {
+  right: 0;
+}
+
+.kk-mobile-menu a {
+  text-decoration: none;
+  color: #2d1f66;
+  font-weight: 500;
+}
+
+.mobile-btn {
+  margin-top: 20px;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 900px) {
+  .kk-links {
+    display: none;
+  }
+
+  .kk-hamburger {
+    display: flex;
+  }
+}

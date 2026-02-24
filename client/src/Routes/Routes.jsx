@@ -11,6 +11,7 @@ import NotesContent from '../pages/common/NotesContent/NotesContent'
 import AdminPanel from '../pages/admin/adminPanel/AdminPanel'
 import ProblemPanel from '../pages/student/problemPanel/ProblemPanel'
 import PracticeIdle from '../pages/student/practiceIDE/PracticeIde'
+import Home from '../pages/HomePage/Home'
 
 
 const AppRoutes = () => {
@@ -18,7 +19,7 @@ const AppRoutes = () => {
     <Routes>
 
       <Route path='/' element={<PublicRoute>
-        <h1>Home</h1>
+        <Home/>
       </PublicRoute>} />
 
       <Route
