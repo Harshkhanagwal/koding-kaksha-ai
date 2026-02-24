@@ -6,7 +6,8 @@ const env = {
   nodeEnv: process.env.NODE_ENV || "development",
   port: Number(process.env.PORT) || 5001,
   mongoUrl: process.env.MONGO_URL,
-  jwtSecret: process.env.JWT_SECRET
+  jwtSecret: process.env.JWT_SECRET, 
+  cors_url : process.env.CORS_URL
 };
 
 if (!env.mongoUrl) {

@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
 import Hero from "../../Components/Herosection/Herosection";
 import Features from "../../Components/Features/Features";
 import CTA from "../../Components/CTA/Cta";
@@ -19,6 +20,7 @@ const Home = () => {
       <HowItWorks/>
       <TrustSection/>
       <CTA />
+      <Footer/>
     </>
   );
 };

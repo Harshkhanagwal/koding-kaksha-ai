@@ -1,8 +1,6 @@
 const jwt = require("jsonwebtoken");
-const User = require("../models/User"); // adjust path if needed
+const User = require("../models/userModel");
 
-
-// 🔐 Middleware 1: Authenticate any logged-in user (READ-ONLY)
 exports.authenticateUser = async (req, res, next) => {
   try {
     const token = req.headers.authorization?.split(" ")[1];
@@ -23,7 +21,6 @@ exports.authenticateUser = async (req, res, next) => {
       });
     }
 
-    // Attach user to request
     req.user = user;
 
     next();
@@ -36,7 +33,6 @@ exports.authenticateUser = async (req, res, next) => {
 
 
 
-// 🔐 Middleware 2: Allow ONLY read-only users
 exports.userReadOnly = async (req, res, next) => {
   try {
     const token = req.headers.authorization?.split(" ")[1];

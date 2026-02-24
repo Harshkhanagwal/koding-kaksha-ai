@@ -16,7 +16,7 @@ exports.validateUser = [
 
   body("role")
     .optional()
-    .isIn(["student", "lecturer", "admin"])
+    .isIn(["student", "lecturer", "admin", "superAdmin"])
     .withMessage("Invalid role selected"),
 
   (req, res, next) => {

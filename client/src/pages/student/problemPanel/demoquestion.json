@@ -1,0 +1,22 @@
+{
+  "_id": "q1",
+  "title": "Two Sum",
+  "difficulty": "Easy",
+  "topic": "Array",
+  "tags": ["Array", "HashMap"],
+  "testcases" : [
+    {
+      "input" : "2 4",
+      "output": "3"
+    },
+    {
+      "input" : "2 4",
+      "output": "3"
+    },
+    {
+      "input" : "2 4",
+      "output": "3"
+    }
+  ],
+  "content": "<div><b>Problem Statement</b></div><div>Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to target.</div><div>You may assume that each input would have exactly one solution, and you may not use the same element twice.</div><div>--------------------------------------------------</div><div><b>Example 1:</b></div><div>Input:</div><div>nums = [2,7,11,15]</div><div>target = 9</div><div>Output:</div><div>[0,1]</div><div>Explanation:</div><div>Because nums[0] + nums[1] == 9, we return [0,1].</div><div>--------------------------------------------------</div><div><b>Example 2:</b></div><div>Input:</div><div>nums = [3,2,4]</div><div>target = 6</div><div>Output:</div><div>[1,2]</div><div>--------------------------------------------------</div><div><b>Example 3:</b></div><div>Input:</div><div>nums = [3,3]</div><div>target = 6</div><div>Output:</div><div>[0,1]</div><div>--------------------------------------------------</div><div><b>Constraints:</b></div><div>- 2 ≤ nums.length ≤ 10^4</div><div>- -10^9 ≤ nums[i] ≤ 10^9</div><div>- -10^9 ≤ target ≤ 10^9</div><div>- Only one valid answer exists.</div><div>--------------------------------------------------</div><div><b>Input Format:</b></div><div>- First line: space-separated integers representing array nums</div><div>- Second line: integer target</div><div><b>Output Format:</b></div><div>- Return two space-separated integers representing indices</div><div>--------------------------------------------------</div><div><b>Function Signature (JavaScript):</b></div><div>function twoSum(nums, target) {</div><div>&nbsp;&nbsp;// return [index1, index2]</div><div>}</div><div>--------------------------------------------------</div><div><b>Edge Cases to Consider:</b></div><div>- Negative numbers</div><div>- Duplicate values</div><div>- Very large arrays</div><div>--------------------------------------------------</div><div><b>Follow-up:</b></div><div>Can you come up with an algorithm that is faster than O(n^2) time complexity?</div>"
+}

@@ -1,0 +1,285 @@
+
+.users-page {
+  padding: 24px 0;
+}
+
+.filter-ribbon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.search-bar input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.1);
+}
+
+
+.table-container {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table-container th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  background: #f9fafb;
+  color: #374151;
+}
+
+.table-container td {
+  padding: 14px 16px;
+  font-size: 14px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.table-container tbody tr:hover {
+  background: #fafafa;
+  transition: 0.2s ease;
+}
+
+
+.table-container.user-table th:nth-child(1),
+.table-container.user-table td:nth-child(1) {
+  width: 18% !important;
+}
+
+.table-container.user-table th:nth-child(2),
+.table-container.user-table td:nth-child(2) {
+  width: 20% !important; 
+}
+
+.table-container th:nth-child(3),
+.table-container td:nth-child(3) {
+  width: 32%;
+}
+
+.table-container th:nth-child(4),
+.table-container td:nth-child(4) {
+  width: 15%;
+}
+
+.table-container th:nth-child(5),
+.table-container td:nth-child(5) {
+  width: 20%;
+}
+
+
+.role-badge {
+  padding: 5px 12px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  display: inline-block;
+}
+
+.role-badge.superAdmin {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.role-badge.admin {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.role-badge.user {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #e5e7eb;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  top: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background-color: var(--color-primary);
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn {
+  background: #eef2ff;
+  color: #4f46e5;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.edit-btn:hover {
+  background: #e0e7ff;
+}
+
+.delete-btn {
+  background: #fef2f2;
+  color: #dc2626;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: #fee2e2;
+}
+
+/* ================= MODAL ================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.modal h3 {
+  margin: 0 0 10px 0;
+}
+
+.modal input,
+.modal select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.modal input:focus,
+.modal select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.save-btn {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.save-btn:hover {
+  opacity: 0.9;
+}
+
+.cancel-btn {
+  background: #f3f4f6;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.cancel-btn:hover {
+  background: #e5e7eb;
+}
+
+
+.no-data {
+  text-align: center;
+  padding: 20px;
+  color: #6b7280;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,16 +1,102 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+/* Full screen center */
+.login-wrapper {
+  height: 100vh;
+  background: var(--gradient-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.main{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+
+/* Card */
+.login-card {
+  background: var(--color-bg-white);
+  width: 400px;
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
 }
-.container{
-    max-width: 1200px;
-    width:100%;
+
+/* Titles */
+.login-title {
+  font-size: 26px;
+  margin-bottom: 8px;
+  color: var(--color-text-primary);
+}
+
+.login-subtitle {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-bottom: 30px;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-light);
+  outline: none;
+  transition: var(--transition-fast);
+  font-size: 14px;
+}
+
+.form-group input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(109, 74, 255, 0.1);
+}
+
+/* Button */
+.login-btn {
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* Footer */
+.login-footer {
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.login-footer span {
+  color: var(--color-primary);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* --------------- Dashboard Layout -------------------- */
+
+.dashboard-wrapper{
+  padding: 15px;
+}
+
+.dashboard-main{
+  margin-left: 280px;
+  padding:0 20px;
+  background-color: var(--color-accent-soft);
+  border-radius: 12px;
+  overflow: scroll;
+  height: calc(100vh - 30px);
+}
+.dashboard-content{
+  width: 100%;
+  padding: 20px 0;
 }

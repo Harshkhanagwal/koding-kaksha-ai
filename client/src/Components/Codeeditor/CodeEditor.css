@@ -1,0 +1,178 @@
+/* =========================
+   EXECUTION AREA
+========================= */
+
+.execution-area {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  background: #111827;
+  border-top: 1px solid #1f2937;
+  height: 220px;
+}
+
+/* =========================
+   COMMON BOX STYLE
+========================= */
+
+.input-area,
+.output-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #1f2937;
+  border-radius: 8px;
+  padding: 12px;
+  overflow: hidden;
+}
+
+.input-area h3,
+.output-area h3 {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e5e7eb;
+  border-bottom: 1px solid #374151;
+  padding-bottom: 6px;
+}
+
+/* =========================
+   INPUT TEXTAREA
+========================= */
+
+.input-area textarea {
+  flex: 1;
+  resize: none;
+  background: #111827;
+  color: #f3f4f6;
+  border: 1px solid #374151;
+  border-radius: 6px;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 13px;
+  outline: none;
+}
+
+.input-area textarea:focus {
+  border-color: #3b82f6;
+}
+
+/* =========================
+   OUTPUT AREA
+========================= */
+
+.output-area pre {
+  flex: 1;
+  margin: 0;
+  padding: 10px;
+  background: #111827;
+  color: #22c55e;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 13px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+
+.output-area p {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+/* =========================
+   HEADER STYLING
+========================= */
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111827;
+  padding: 10px 16px;
+  border-bottom: 1px solid #1f2937;
+}
+
+.select-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.select-list label {
+  font-size: 13px;
+  color: #e5e7eb;
+}
+
+.select-list select {
+  background: #1f2937;
+  color: #f3f4f6;
+  border: 1px solid #374151;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  outline: none;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.editor-button {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.run-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.run-btn:hover {
+  background: #2563eb;
+}
+
+.submit-btn {
+  background: #6b7280;
+  color: white;
+  margin-left: 8px;
+}
+
+.editor-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.submission-closed {
+  padding: 12px;
+  border-radius: 8px;
+  margin:0 20px;
+  margin-bottom: 0;
+  color: #fff;
+}
+
+.submission-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #ff4d4d;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #ff0000;
+}

@@ -1,0 +1,15 @@
+.ide-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid var(--color-primary);
+}
+.ide-header img{
+    width: 160px;
+    object-fit: contain;
+}
+
+.ide-header .link{
+    text-decoration: none;
+}

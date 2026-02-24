@@ -59,7 +59,6 @@ const updateUser = async (req, res) => {
     const { id } = req.params;
     const { name, email, password, role, isReadOnly } = req.body;
 
-    // Check if user exists
     const user = await User.findById(id);
     if (!user) {
       return res.status(404).json({
@@ -67,7 +66,6 @@ const updateUser = async (req, res) => {
       });
     }
 
-    // If email is being updated, check if it already exists
     if (email && email !== user.email) {
       const existingUser = await User.findOne({ email });
       if (existingUser) {
@@ -77,13 +75,11 @@ const updateUser = async (req, res) => {
       }
     }
 
-    // If password is updated → hash it
     let hashedPassword = user.password;
     if (password) {
       hashedPassword = await bcrypt.hash(password, 10);
     }
 
-    // Update fields
     user.name = name || user.name;
     user.email = email || user.email;
     user.password = hashedPassword;

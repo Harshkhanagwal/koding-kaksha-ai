@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         required: true,
-        enum: ["student", "lecturer", "admin"], 
+        enum: ["student", "lecturer", "admin", "superAdmin"], 
         default : "student"
     },
     isReadOnly: {
@@ -35,5 +35,7 @@ userSchema.methods.comparePassword = async function (enteredPassword) {
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;
+
+
 
 

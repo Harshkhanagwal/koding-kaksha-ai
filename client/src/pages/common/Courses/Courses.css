@@ -1,0 +1,61 @@
+.courses-grid {
+  padding: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.subject-capsules {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.filter-capsule {
+ padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-capsule:hover {
+  background: #e5e7eb;
+}
+
+.filter-capsule.active {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.subject-tag-red {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.subject-tag-yellow {
+  background: #fef9c3;
+  color: #ca8a04;
+}
+
+.subject-tag-blue {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.subject-tag-cyan {
+  background: #cffafe;
+  color: #0891b2;
+}
+
+.subject-tag-green {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.subject-tag-default {
+  background: #f3f4f6;
+  color: #6b7280;
+}

@@ -1,0 +1,25 @@
+.notes-title-input{
+    width: 100%;
+    background-color: #f9f9f9;
+    border: none;
+    padding: 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid #7c7c7c ;
+}
+
+.notes-title-input:focus{ 
+    outline: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+.lable-heading{
+    margin-bottom: 10px;
+}
+
+
+.upload-notes{
+    margin-top: 20px;
+    position: relative;
+    right: 0;
+    margin-left: auto;
+}
