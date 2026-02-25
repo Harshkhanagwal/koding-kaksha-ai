@@ -9,35 +9,44 @@ const HowItWorks = () => {
         <h2>How Koding-Kaksha-AI Works</h2>
 
         <div className="kk-how-grid">
+          
+          {/* Students */}
           <div className="kk-how-card">
             <div className="kk-how-icon">
               <FaUserGraduate />
             </div>
-            <h3>Students Learn</h3>
+            <h3>Students Practice & Grow</h3>
             <p>
-              Students practice coding problems with AI-generated challenges.
+              Students solve real-world coding problems, practice regularly, and 
+              strengthen their concepts to gain deeper knowledge and confidence.
             </p>
           </div>
 
+          {/* Teachers */}
           <div className="kk-how-card">
             <div className="kk-how-icon">
               <FaChalkboardTeacher />
             </div>
-            <h3>Teachers Create</h3>
+            <h3>Teachers Create & Monitor</h3>
             <p>
-              Teachers generate smart tests and assignments in seconds.
+              Teachers create smart tests and assignments while monitoring 
+              student performance, progress, and learning patterns in real-time.
             </p>
           </div>
 
+          {/* AI */}
           <div className="kk-how-card">
             <div className="kk-how-icon">
               <FaRobot />
             </div>
-            <h3>AI Evaluates</h3>
+            <h3>AI Evaluates & Explains</h3>
             <p>
-              AI checks submissions instantly and provides performance insights.
+              AI analyzes code logic, efficiency, and correctness, assigns marks 
+              automatically, and provides detailed explanations and feedback 
+              to improve understanding.
             </p>
           </div>
+
         </div>
       </div>
     </section>

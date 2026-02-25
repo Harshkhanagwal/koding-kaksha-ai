@@ -1,5 +1,5 @@
 /* ========================= */
-/* HEADER BASE */
+/* PREMIUM PURPLE GLASS HEADER */
 /* ========================= */
 
 .kk-header {
@@ -7,17 +7,33 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-  padding: 18px 8%;
+  padding: 16px 8%;
   transition: all 0.3s ease;
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  background: rgba(255, 255, 255, 0.65);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  background: linear-gradient(
+    135deg,
+    rgba(109, 74, 255, 0.35),
+    rgba(143, 107, 255, 0.25)
+  );
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .kk-header.scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 8px 35px rgba(109, 74, 255, 0.15);
+  background: linear-gradient(
+    135deg,
+    rgba(109, 74, 255, 0.6),
+    rgba(143, 107, 255, 0.45)
+  );
+  box-shadow: 0 8px 40px rgba(109, 74, 255, 0.4);
 }
+
+/* ========================= */
+/* NAV LAYOUT */
+/* ========================= */
 
 .kk-nav {
   display: flex;
@@ -29,13 +45,11 @@
 /* LOGO */
 /* ========================= */
 
-.kk-logo {
-  font-size: 20px;
-  font-weight: 700;
+.kk-logo-img {
+  height: 42px;
+  width: auto;
   cursor: pointer;
-  background: linear-gradient(90deg, #6d4aff, #8f6bff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
 }
 
 /* ========================= */
@@ -50,22 +64,26 @@
 
 .kk-links a {
   text-decoration: none;
-  color: #2d1f66;
+  color: #ffffff;
   font-weight: 500;
   font-size: 15px;
   position: relative;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 5px 0;
 }
 
+/* Modern glow underline */
 .kk-links a::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -6px;
+  left: 50%;
+  bottom: -4px;
   width: 0%;
   height: 2px;
-  background: #6d4aff;
-  transition: width 0.3s ease;
+  background: linear-gradient(90deg, #ffffff, #e0d9ff);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 10px;
 }
 
 .kk-links a:hover::after {
@@ -73,7 +91,12 @@
 }
 
 .kk-links a:hover {
-  color: #6d4aff;
+  color: #f3f0ff;
+}
+
+/* Remove underline for button wrapper */
+.kk-btn-link::after {
+  display: none !important;
 }
 
 /* ========================= */
@@ -81,20 +104,21 @@
 /* ========================= */
 
 .kk-nav-btn {
-  background: linear-gradient(90deg, #6d4aff, #8f6bff);
-  color: #ffffff;
-  padding: 10px 26px;
-  border-radius: 999px;
+  background: #ffffff;
+  color: #6d4aff;
+  padding: 9px 24px;
+  border-radius: 50px;
   border: none;
-  cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .kk-nav-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(109, 74, 255, 0.35);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  background: #f3f0ff;
 }
 
 /* ========================= */
@@ -109,11 +133,17 @@
   position: absolute;
   top: 140%;
   left: 0;
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 12px 0;
-  min-width: 200px;
-  box-shadow: 0 20px 45px rgba(109, 74, 255, 0.15);
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border-radius: 14px;
+  padding: 10px 0;
+  min-width: 190px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 
   opacity: 0;
   visibility: hidden;
@@ -131,11 +161,11 @@
   display: block;
   padding: 10px 20px;
   font-size: 14px;
+  color: #ffffff;
 }
 
 .kk-dropdown-menu a:hover {
-  background: #f6f4ff;
-  color: #6d4aff;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* ========================= */
@@ -150,9 +180,9 @@
 }
 
 .kk-hamburger span {
-  width: 25px;
+  width: 26px;
   height: 3px;
-  background: #6d4aff;
+  background: #ffffff;
   border-radius: 3px;
   transition: 0.3s;
 }
@@ -177,13 +207,19 @@
   position: fixed;
   top: 70px;
   right: -100%;
-  width: 250px;
+  width: 260px;
   height: 100vh;
-  background: white;
-  box-shadow: -10px 0 40px rgba(109, 74, 255, 0.15);
+
+  background: linear-gradient(
+    180deg,
+    rgba(109, 74, 255, 0.9),
+    rgba(143, 107, 255, 0.9)
+  );
+
+  backdrop-filter: blur(20px);
+  padding: 40px 25px;
   display: flex;
   flex-direction: column;
-  padding: 40px 25px;
   gap: 25px;
   transition: 0.4s ease;
 }
@@ -194,12 +230,9 @@
 
 .kk-mobile-menu a {
   text-decoration: none;
-  color: #2d1f66;
+  color: #ffffff;
   font-weight: 500;
-}
-
-.mobile-btn {
-  margin-top: 20px;
+  font-size: 16px;
 }
 
 /* ========================= */

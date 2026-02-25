@@ -16,13 +16,16 @@ const Hero = () => {
           </p>
 
           <div className="kk-hero-buttons">
+            <a href="/login">
             <button className="kk-primary">
-              Create Free Account
+              Login
             </button>
-
+            </a>
+            <a href="https://github.com/Harshkhanagwal/koding-kaksha-ai">
             <button className="kk-secondary">
-              Explore Platform
+              Github
             </button>
+            </a>
           </div>
         </div>
       </div>

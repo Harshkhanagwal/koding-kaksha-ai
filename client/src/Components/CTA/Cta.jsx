@@ -9,7 +9,9 @@ const CTA = () => {
         <p>
           Join thousands of students and teachers transforming coding education.
         </p>
+        <a href="/login">
         <button>Get Started Free</button>
+        </a>
       </div>
     </section>
   );
