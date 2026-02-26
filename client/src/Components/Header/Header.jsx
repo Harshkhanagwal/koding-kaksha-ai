@@ -17,7 +17,15 @@ const Header = () => {
   return (
     <header className={`kk-header ${scrolled ? "scrolled" : ""}`}>
       <div className="kk-nav">
-        <h2 className="kk-logo">Koding-Kaksha-AI</h2>
+        
+        {/* Logo Image */}
+        <div className="kk-logo-wrapper">
+          <img
+            src="/Images/Logo-white-DwwczthU.png"
+            alt="Koding Kaksha AI"
+            className="kk-logo-img"
+          />
+        </div>
 
         {/* Desktop Links */}
         <div className="kk-links">
@@ -40,7 +48,10 @@ const Header = () => {
           </div>
 
           <a href="#">Admin</a>
-          <button className="kk-nav-btn">Get Started</button>
+
+          <a href="/login" className="kk-btn-link">
+            <button className="kk-nav-btn">Login</button>
+          </a>
         </div>
 
         {/* Hamburger */}
@@ -59,7 +70,9 @@ const Header = () => {
         <a href="#">Students</a>
         <a href="#">Teachers</a>
         <a href="#">Admin</a>
-        <button className="kk-nav-btn mobile-btn">Get Started</button>
+        <a href="/login">
+          <button className="kk-nav-btn mobile-btn">Login</button>
+        </a>
       </div>
     </header>
   );

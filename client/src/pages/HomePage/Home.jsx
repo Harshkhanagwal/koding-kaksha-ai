@@ -8,6 +8,8 @@ import HowItWorks from "../../Components/HowItWorks/HowItWorks";
 import Stats from "../../Components/Stats/Stats";
 import TrustSection from "../../Components/Trust/TrustSection";
 import DarkSection from "../../Components/Darksection/DarkSection";
+import ProjectOverview from "../../Components/ProjectOverView/ProjectOverView";
+import LearningSystem from "../../Components/LearningSystem/LearningSystem";
 
 const Home = () => {
   return (
@@ -16,9 +18,11 @@ const Home = () => {
       <Hero />
       <Features />
       <DarkSection/>
+      <ProjectOverview/>
       <Stats/>
       <HowItWorks/>
       <TrustSection/>
+      <LearningSystem/>
       <CTA />
       <Footer/>
     </>

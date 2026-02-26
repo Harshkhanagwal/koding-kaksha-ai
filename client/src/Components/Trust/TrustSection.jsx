@@ -1,40 +1,151 @@
 import React from "react";
 import "./TrustSection.css";
+import {
+  FaEnvelope,
+  FaPhone,
+  FaGithub,
+  FaLinkedin,
+  FaWhatsapp
+} from "react-icons/fa";
 
 const TrustSection = () => {
   return (
-    <section className="kk-trust">
-      <div className="kk-trust-container">
+    <section className="kk-creators">
+      <div className="kk-creators-container">
 
-        {/* Left Content */}
-        <div className="kk-trust-content">
-          <div className="kk-trust-badge">
-            <span></span>
+        <h2 className="kk-creators-title">
+          Meet The Creators
+        </h2>
+
+        <div className="kk-creators-grid">
+
+          {/* ================= Harsh ================= */}
+          <div className="kk-creator-card">
+            <h3>Harsh</h3>
+
+            <div className="kk-creator-info">
+              <p>
+                <FaEnvelope />
+                <a href="mailto:Harshkhanagwall29@gmail.com">
+                  Harshkhanagwall29@gmail.com
+                </a>
+              </p>
+
+              <p>
+                <FaPhone />
+                <a href="tel:+919818937777">
+                  +91 9818937777
+                </a>
+              </p>
+
+              <p>
+                <FaWhatsapp />
+                <a
+                  href="https://wa.me/919818937777"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="kk-whatsapp-text"
+                >
+                  WhatsApp
+                </a>
+              </p>
+            </div>
+
+            <div className="kk-social-row">
+              <a
+                href="https://github.com/Harshkhanagwal"
+                target="_blank"
+                rel="noreferrer"
+                className="kk-social-btn"
+              >
+                <FaGithub />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/harshkhanagwal/"
+                target="_blank"
+                rel="noreferrer"
+                className="kk-social-btn"
+              >
+                <FaLinkedin />
+              </a>
+            </div>
+
+            <a
+              href="https://harshkhanagwal.netlify.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <button className="kk-primary kk-portfolio-btn">
+                View Portfolio
+              </button>
+            </a>
           </div>
 
-          <h2>
-            Thousands of Students & Teachers
-            Trust Koding-Kaksha-AI
-          </h2>
+          {/* ================= Priyanshu ================= */}
+          <div className="kk-creator-card">
+            <h3>Priyanshu</h3>
 
-          <p>
-            Secure. Intelligent. Automated.
-            Experience next-generation AI-powered coding education.
-          </p>
+            <div className="kk-creator-info">
+              <p>
+                <FaEnvelope />
+                <a href="mailto:priyanshukashyap844@gmail.com">
+                  priyanshukashyap844@gmail.com
+                </a>
+              </p>
 
-          <button className="kk-trust-btn">
-            Start Learning Free
-          </button>
+              <p>
+                <FaPhone />
+                <a href="tel:+918851021358">
+                  +91 8851021358
+                </a>
+              </p>
+
+              <p>
+                <FaWhatsapp />
+                <a
+                  href="https://wa.me/918851021358"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="kk-whatsapp-text"
+                >
+                  WhatsApp
+                </a>
+              </p>
+            </div>
+
+            <div className="kk-social-row">
+              <a
+                href="https://github.com/priyanshu8851"
+                target="_blank"
+                rel="noreferrer"
+                className="kk-social-btn"
+              >
+                <FaGithub />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/2004-priyanshu-kashyap/"
+                target="_blank"
+                rel="noreferrer"
+                className="kk-social-btn"
+              >
+                <FaLinkedin />
+              </a>
+            </div>
+
+            <a
+              href="https://priyanshukashyap.netlify.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <button className="kk-primary kk-portfolio-btn">
+                View Portfolio
+              </button>
+            </a>
+          </div>
+
         </div>
-
-        {/* Right Image */}
-        <div className="kk-trust-image">
-          <img
-            src="/koikhatarnaakImage.png"
-            alt="Platform Dashboard"
-          />
-        </div>
-
       </div>
     </section>
   );

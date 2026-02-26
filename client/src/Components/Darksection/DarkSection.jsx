@@ -21,13 +21,11 @@ function DarkSection() {
 
         {/* RIGHT BUTTON COLUMN */}
         <div className="dark-actions">
+          <a href="/login">
           <button className="primary-btn">
             Get Started
           </button>
-
-          <button className="secondary-btn">
-            Learn More
-          </button>
+          </a>
         </div>
       </div>
     </section>
