@@ -205,15 +205,15 @@
 
 .kk-mobile-menu {
   position: fixed;
-  top: 70px;
+  top: 80px;
   right: -100%;
   width: 260px;
   height: 100vh;
 
   background: linear-gradient(
     180deg,
-    rgba(109, 74, 255, 0.9),
-    rgba(143, 107, 255, 0.9)
+    rgba(109, 74, 255, 1),
+    rgba(143, 107, 255, 1)
   );
 
   backdrop-filter: blur(20px);

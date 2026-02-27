@@ -17,12 +17,10 @@ const Home = () => {
       <Header />
       <Hero />
       <Features />
-      <DarkSection/>
       <ProjectOverview/>
-      <Stats/>
       <HowItWorks/>
-      <TrustSection/>
       <LearningSystem/>
+      <TrustSection/>
       <CTA />
       <Footer/>
     </>
