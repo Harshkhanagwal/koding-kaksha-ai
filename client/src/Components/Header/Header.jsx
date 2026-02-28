@@ -30,24 +30,16 @@ const Header = () => {
         {/* Desktop Links */}
         <div className="kk-links">
           <div className="kk-dropdown">
-            <a href="#">Students</a>
-            <div className="kk-dropdown-menu">
-              <a href="#">Learn Coding</a>
-              <a href="#">Practice Tests</a>
-              <a href="#">Performance</a>
-            </div>
+            <a href="/">Home</a>
+           
           </div>
 
           <div className="kk-dropdown">
-            <a href="#">Teachers</a>
-            <div className="kk-dropdown-menu">
-              <a href="#">Create Test</a>
-              <a href="#">AI Generator</a>
-              <a href="#">Reports</a>
-            </div>
+            <a href="#">About</a>
+            
           </div>
 
-          <a href="#">Admin</a>
+          <a href="#">Features</a>
 
           <a href="/login" className="kk-btn-link">
             <button className="kk-nav-btn">Login</button>
@@ -67,9 +59,9 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div className={`kk-mobile-menu ${menuOpen ? "open" : ""}`}>
-        <a href="#">Students</a>
-        <a href="#">Teachers</a>
-        <a href="#">Admin</a>
+        <a href="/">Home</a>
+        <a href="#">About</a>
+        <a href="#">Features</a>
         <a href="/login">
           <button className="kk-nav-btn mobile-btn">Login</button>
         </a>
