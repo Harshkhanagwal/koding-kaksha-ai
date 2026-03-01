@@ -7,6 +7,11 @@ import AIChatbox from "../../../Components/chatbox/AIChatbox";
 const PracticeIdle = () => {
   const { id } = useParams();
 
+  const [language, setLanguage] = useState("javascript");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  
+
+
   const [code, setCode] = useState(
     localStorage.getItem("savedCode") || "// Write your code here..."
   );
@@ -16,7 +21,7 @@ const PracticeIdle = () => {
     localStorage.setItem("savedCode", code);
   }, [code]);
 
- 
+
   const [chatResponse, setChatResponse] = useState("");
   const [userQuestion, setUserQuestion] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -48,9 +53,7 @@ const PracticeIdle = () => {
     window.addEventListener("mouseup", stopResizing);
   };
 
-  /* =========================
-     AI LOGIC
-  ========================= */
+ 
   const explainCode = async () => {
     if (!userQuestion.trim() && !code.trim()) return;
 
@@ -73,9 +76,8 @@ You are a friendly programming mentor.
 Do not provide full solutions.
 Give hints and explain logic clearly.
 
-User Question: ${
-                    userQuestion ? userQuestion : "Explain this code"
-                  }
+User Question: ${userQuestion ? userQuestion : "Explain this code"
+                    }
 
 Code:
 ${code}
@@ -115,7 +117,7 @@ ${code}
       <IDEheader />
 
       <div className="problem-ide-main" ref={containerRef}>
-        
+
         <div
           className="left-panel"
           style={{ width: `${leftWidth}%` }}
@@ -123,7 +125,11 @@ ${code}
           <CodeEditor
             code={code}
             setCode={setCode}
-            questionId={id} 
+            setLanguage={setLanguage}
+            language={language}
+            questionId={id}
+            isSubmitted={isSubmitted}
+            setIsSubmitted={setIsSubmitted}
           />
         </div>
 

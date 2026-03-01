@@ -17,19 +17,15 @@ const ProblemPanel = () => {
 
 
     const [code, setCode] = useState(
-        localStorage.getItem("savedCode") || "// Write your code here..."
+       id ?  "// Write your code here..." : localStorage.getItem("savedCode") || "// Write your code here..." 
     );
     const [language, setLanguage] = useState("javascript");
 
-    /* =========================
-       RESULT STATE
-    ========================= */
+   
     const [verdict, setVerdict] = useState(null);
     const [running, setRunning] = useState(false);
 
-    /* =========================
-       AUTO SAVE CODE
-    ========================= */
+   
     useEffect(() => {
         const timeout = setTimeout(() => {
             localStorage.setItem("savedCode", code);
@@ -37,9 +33,7 @@ const ProblemPanel = () => {
         return () => clearTimeout(timeout);
     }, [code]);
 
-    /* =========================
-       FETCH QUESTION
-    ========================= */
+
     useEffect(() => {
         const fetchQuestion = async () => {
             try {
@@ -55,9 +49,7 @@ const ProblemPanel = () => {
         fetchQuestion();
     }, [id]);
 
-    /* =========================
-       SUBMIT (Judge)
-    ========================= */
+  
     const handleSubmit = async () => {
         if (!code.trim()) return;
 
@@ -84,9 +76,7 @@ const ProblemPanel = () => {
         }
     };
 
-    /* =========================
-       RESIZER
-    ========================= */
+ 
     const [leftWidth, setLeftWidth] = useState(40);
     const containerRef = useRef(null);
 
@@ -113,9 +103,6 @@ const ProblemPanel = () => {
         window.addEventListener("mouseup", stopResizing);
     };
 
-    /* =========================
-       UI STATES
-    ========================= */
     if (loading) return <div className="loading">Loading question...</div>;
     if (error) return <div className="error">{error}</div>;
     if (!question) return null;

@@ -3,8 +3,8 @@
     background-color: #f9f9f9;
     border: none;
     padding: 16px;
-    border-radius: var(--radius-sm);
-    border: 1px solid #7c7c7c ;
+    border-radius: 2px;
+    border: 1px solid #c9c9c9 ;
 }
 
 .notes-title-input:focus{ 

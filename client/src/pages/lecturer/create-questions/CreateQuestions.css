@@ -1,0 +1,81 @@
+.input-row{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.input-cell{
+    width: calc((100% - 40px) / 3);
+}
+
+.testcase-area-input{
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.test-case-cell{
+    display: flex;
+    width: calc((80% - 20px) / 2) ;
+}
+
+.add-test-case{
+    width: calc((20% - 20px));
+    border: none;
+    background-color: var(--color-primary);
+    color: #fff;
+    cursor: pointer;
+}
+
+.add-test-case:active{ 
+    scale: 0.9;
+}
+
+
+
+
+
+.testcase-table {
+  margin-top: 20px;
+}
+
+.testcase-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.testcase-table th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  background: #f9fafb;
+  color: #374151;
+}
+
+.testcase-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.testcase-table tbody tr:hover {
+  background: #fafafa;
+  transition: 0.2s ease;
+}
+
+.testcase-table th:nth-child(1),
+.testcase-table td:nth-child(1) {
+  width: 40% !important;
+}
+
+.testcase-table th:nth-child(2),
+.testcase-table td:nth-child(2) {
+  width: 40% !important;
+}
+
+.testcase-table th:nth-child(3),
+.testcase-table td:nth-child(3) {
+  width: 20% !important;
+}
