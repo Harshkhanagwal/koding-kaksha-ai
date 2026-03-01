@@ -12,7 +12,7 @@ const CodeEditor = ({
     running,             
     isSubmitted,
     setIsSubmitted,
-    setVerdict
+    setVerdict,
 }) => {
 
     const [input, setInput] = useState("");
@@ -115,7 +115,6 @@ const CodeEditor = ({
                 </div>
             </div>
 
-            {/* MONACO EDITOR */}
             <Editor
                 height="60vh"
                 language={language === "cpp" ? "cpp" : language}
@@ -124,7 +123,6 @@ const CodeEditor = ({
                 theme="vs-dark"
             />
 
-            {/* INPUT / OUTPUT SECTION */}
             {isSubmitted ? (
                 <div className="submission-closed">
                     <div className="submission-header">

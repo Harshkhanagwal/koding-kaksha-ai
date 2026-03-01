@@ -12,6 +12,7 @@ import AdminPanel from '../pages/admin/adminPanel/AdminPanel'
 import ProblemPanel from '../pages/student/problemPanel/ProblemPanel'
 import PracticeIdle from '../pages/student/practiceIDE/PracticeIde'
 import Home from '../pages/HomePage/Home'
+import CreateQuestions from '../pages/lecturer/create-questions/CreateQuestions'
 
 
 const AppRoutes = () => {
@@ -45,6 +46,8 @@ const AppRoutes = () => {
         <Route path='edit-notes/:id' element={<CreateNotes />} />
         <Route path='questions' element={<Questions />} />
         <Route path='notes/:id' element={<NotesContent></NotesContent>} />
+        <Route path='upload-question' element={<CreateQuestions/> }/>
+
       </Route>
 
       <Route path='question/:id' element={

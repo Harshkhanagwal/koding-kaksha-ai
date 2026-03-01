@@ -10,6 +10,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { BiCodeBlock } from "react-icons/bi";
 import { logout } from "../../features/auth/authSlice";
+import { FaRegFileCode } from "react-icons/fa6";
 
 const Sidebar = () => {
     const navigate = useNavigate();
@@ -50,6 +51,13 @@ const Sidebar = () => {
                         <NavLink to="/dashboard/create-notes" className="nav-item">
                             <LiaNotesMedicalSolid />
                             <span>Create Notes</span>
+                        </NavLink>
+                    )}
+
+                     {(role === "admin" || role === "lecturer" || role === "superAdmin") && (
+                        <NavLink to="/dashboard/upload-question" className="nav-item">
+                            <FaRegFileCode />
+                            <span>Upload Question</span>
                         </NavLink>
                     )}
 
