@@ -4,8 +4,9 @@
 
 .kk-section {
   padding: 60px 8%;
-  background: #ffffff;
+  /* background: #ffffff; */
   text-align: center;
+  background: linear-gradient(180deg, #f6f4ff 0%, #ffffff 50%, #f6f4ff 100%);
 }
 
 .kk-learning {
