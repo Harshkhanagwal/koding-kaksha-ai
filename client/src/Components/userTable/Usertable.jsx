@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import axiosInstance from "../../services/axiosInstance";
 import "./Usertable.css";
 
-const UserTable = () => {
+const UserTable = ({loading, setLoading}) => {
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
   const [isModalOpen, setIsModalOpen] = useState(false);
