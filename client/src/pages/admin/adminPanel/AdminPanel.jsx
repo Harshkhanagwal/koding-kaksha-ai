@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import './AdminPanel.css'
 import UserTable from '../../../Components/userTable/Usertable'
 import CreateUser from '../../../Components/createUser/CreateUser'
+import Loader from '../../../Components/Loader/Loader'
 
 const AdminPanel = () => {
 
     const [buttonPosition, setButtonPosition] = useState(1)
+    const [loading, setLoading] = useState(true)
   return (
     <>
     
@@ -29,7 +31,11 @@ const AdminPanel = () => {
       </div>
 
       {
-        buttonPosition === 1 ? <UserTable/> : <CreateUser/>
+        loading && <Loader/> 
+      }
+
+      {
+        buttonPosition === 1 ? <UserTable loading={loading} setLoading={setLoading} /> : <CreateUser/>
       }
 
         

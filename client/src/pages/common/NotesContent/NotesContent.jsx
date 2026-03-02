@@ -5,12 +5,13 @@ import axiosInstance from "../../../services/axiosInstance";
 import { CgNotes } from "react-icons/cg";
 
 import "./NotesContent.css";
+import Loader from "../../../Components/Loader/Loader";
 
 const NotesContent = () => {
   const { id } = useParams();
   const navigate = useNavigate()
   const [course, setCourse] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const { role } = useSelector((state) => state.auth);
 
@@ -20,6 +21,7 @@ const NotesContent = () => {
 
   useEffect(() => {
     const fetchCourse = async () => {
+      setLoading(true)
       try {
         const res = await axiosInstance.get(`/course/course-details/${id}`);
         setCourse(res.data.data);
@@ -33,11 +35,11 @@ const NotesContent = () => {
     fetchCourse();
   }, [id]);
 
-  if (loading) return <p>Loading...</p>;
-  if (!course) return <p>Course not found</p>;
+  if (!course) return <Loader/>;
 
 
   const handleDelete = async () => {
+    setLoading(true)
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this course?"
     );
@@ -50,12 +52,19 @@ const NotesContent = () => {
       console.log("hello")
     } catch (error) {
       console.log(error);
+    }finally{
+      setLoading(false)
     }
   };
 
   
 
   return (
+   <>
+       {
+        loading && <Loader/> 
+      }
+ 
     <div className="course-details-page">
 
 
@@ -96,6 +105,7 @@ const NotesContent = () => {
 
       </div>
     </div>
+   </>
   );
 }
 

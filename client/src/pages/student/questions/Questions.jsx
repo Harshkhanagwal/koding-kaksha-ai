@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import axiosInstance from "../../../services/axiosInstance";
 import "./Questions.css";
+import Loader from "../../../Components/Loader/Loader";
 
 const Questions = () => {
   // 🔹 Get role from Redux
@@ -27,7 +28,6 @@ const Questions = () => {
     "Dynamic Programming",
   ];
 
-  // 🔹 Fetch Questions
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
@@ -43,7 +43,6 @@ const Questions = () => {
     fetchQuestions();
   }, []);
 
-  // 🔹 Delete Question
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this question?"
@@ -51,14 +50,16 @@ const Questions = () => {
     if (!confirmDelete) return;
 
     try {
+      setLoading(true)
       await axiosInstance.delete(`/questions/delete/${id}`);
       setQuestions((prev) => prev.filter((q) => q._id !== id));
     } catch (err) {
       alert("Failed to delete question");
+    }finally{
+      setLoading(false)
     }
   };
 
-  // 🔹 Filter Logic
   const filteredQuestions = useMemo(() => {
     return questions.filter((q) => {
       const matchesTopic =
@@ -76,13 +77,13 @@ const Questions = () => {
     });
   }, [questions, search, selectedTopic, selectedDifficulty]);
 
+  if(loading) return <Loader/>
   return (
     <div className="questions-page">
       <div className="page-header">
         <h1>Questions</h1>
       </div>
 
-      {/* 🔹 Topic Filter */}
       <div className="topic-ribbon">
         {topics.map((topic) => (
           <button
@@ -96,7 +97,6 @@ const Questions = () => {
         ))}
       </div>
 
-      {/* 🔹 Difficulty + Search */}
       <div className="filter-ribbon">
         <div className="select-box">
           <span>Difficulty : </span>
@@ -121,7 +121,6 @@ const Questions = () => {
         </div>
       </div>
 
-      {/* 🔹 Table */}
       <div className="table-container">
         {loading ? (
           <p className="no-data">Loading questions...</p>

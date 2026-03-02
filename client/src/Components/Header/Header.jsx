@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Header.css";
+import Logo from '../../assets/Logo-white.png'
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -21,7 +22,7 @@ const Header = () => {
         {/* Logo Image */}
         <div className="kk-logo-wrapper">
           <img
-            src="/Images/Logo-white-DwwczthU.png"
+            src={Logo}
             alt="Koding Kaksha AI"
             className="kk-logo-img"
           />

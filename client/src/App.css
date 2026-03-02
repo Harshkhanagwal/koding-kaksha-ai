@@ -95,6 +95,7 @@
   border-radius: 12px;
   overflow: scroll;
   height: calc(100vh - 30px);
+  position: relative;
 }
 .dashboard-content{
   width: 100%;
