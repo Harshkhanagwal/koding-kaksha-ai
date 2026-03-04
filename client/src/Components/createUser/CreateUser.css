@@ -22,10 +22,16 @@
   margin-bottom: 18px;
 }
 
+.password-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
 .form-group label {
   font-size: 14px;
   font-weight: 500;
-  margin-bottom: 6px;
   color: #374151;
 }
 
@@ -45,6 +51,33 @@
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
   outline: none;
+}
+
+.ghost-btn {
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: #4b5563;
+  font-size: 12px;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.strength-text {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.strength-text.weak {
+  color: #dc2626;
+}
+
+.strength-text.medium {
+  color: #d97706;
+}
+
+.strength-text.strong {
+  color: #059669;
 }
 
 /* Toggle Row */

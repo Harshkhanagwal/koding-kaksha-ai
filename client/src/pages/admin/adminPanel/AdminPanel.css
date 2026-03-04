@@ -13,6 +13,13 @@
     width: 150px;
     border-radius: 50px;
     cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+.tab-button.active-tab {
+  font-weight: 600;
+  color: #1f2937;
 }
 
 .span-bg{
@@ -38,4 +45,12 @@
 
 .position-3{
     left: 305px;
+}
+
+.issues-placeholder {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
 }

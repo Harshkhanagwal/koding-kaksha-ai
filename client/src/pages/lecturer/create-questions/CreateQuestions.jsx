@@ -1,13 +1,18 @@
-import React, { useRef, useState, useMemo } from "react";
+import React, { useRef, useState, useMemo, useEffect } from "react";
 import JoditEditor from "jodit-react";
 import "./CreateQuestions.css";
 import axiosInstance from "../../../services/axiosInstance";
 import { toast } from "react-toastify";
+import Loader from "../../../Components/Loader/Loader";
+import { useNavigate, useParams } from "react-router-dom";
 
 const CreateQuestions = () => {
     const editor = useRef(null);
+    const navigate = useNavigate();
+    const { id } = useParams();
+    const isEditMode = Boolean(id);
 
-
+    const [loading, setLoading] = useState(false)
     const [input, setInput] = useState("");
     const [output, setOutput] = useState("");
     const [editIndex, setEditIndex] = useState(null);
@@ -29,6 +34,31 @@ const CreateQuestions = () => {
         }),
         []
     );
+
+    useEffect(() => {
+        if (!isEditMode) return;
+
+        const fetchQuestionDetails = async () => {
+            try {
+                setLoading(true);
+                const { data } = await axiosInstance.get(`/questions/edit/${id}`);
+                const question = data.data;
+
+                setTitle(question.title || "");
+                setTopic(question.topic || "");
+                setDifficulty(question.difficulty || "");
+                setTags(Array.isArray(question.tags) ? question.tags.join(", ") : "");
+                setContent(question.content || "");
+                setTestcase(Array.isArray(question.testcases) ? question.testcases : []);
+            } catch (error) {
+                toast.error(error.response?.data?.message || "Failed to fetch question details");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchQuestionDetails();
+    }, [id, isEditMode]);
 
     const addTestCase = () => {
         if (!input.trim() || !output.trim()) return;
@@ -66,9 +96,11 @@ const CreateQuestions = () => {
 
     const handleSubmit = async () => {
 
-
+        
         try {
+            setLoading(true);
             const obj = {
+
                 title: title,
                 topic: topic,
                 difficulty: difficulty,
@@ -76,25 +108,35 @@ const CreateQuestions = () => {
                 content: content,
                 testcases: testcase
             }
-            const res = await axiosInstance.post('/questions/add', obj)
-
-            toast.success("Question Uploaded successfully");
+            if (isEditMode) {
+                await axiosInstance.put(`/questions/update/${id}`, obj);
+                toast.success("Question updated successfully");
+            } else {
+                await axiosInstance.post('/questions/add', obj);
+                toast.success("Question uploaded successfully");
+            }
+            navigate("/dashboard/questions");
 
         } catch (error) {
             toast.error(
                     error.response?.data?.message || "Something went wrong"
             );
+        }finally{
+            setLoading(false)
         }
 
     }
 
     return (
         <>
+            {
+                loading && <Loader/>
+            }
             <div className="page-header">
-                <h1>Upload Question</h1>
+                <h1>{isEditMode ? "Edit Question" : "Upload Question"}</h1>
 
                 <button onClick={handleSubmit} className="button-primary">
-                    Upload Quesiton
+                    {isEditMode ? "Update Question" : "Upload Question"}
                 </button>
             </div>
 

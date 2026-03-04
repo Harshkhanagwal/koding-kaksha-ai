@@ -3,6 +3,7 @@ import "./Courses.css";
 import axiosInstance from "../../../services/axiosInstance";
 import CourseCard from "../../../Components/CourseCard/CourseCard";
 import { IoSearchSharp } from "react-icons/io5";
+import Loader from "../../../Components/Loader/Loader";
 
 
 const Courses = () => {
@@ -61,6 +62,10 @@ const Courses = () => {
 
   return (
     <>
+
+      {
+        loading && <Loader/>
+      }
       <div className="page-header">
         <h1>Notes</h1>
 

@@ -1,11 +1,12 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../../../services/axiosInstance";
 import "./Questions.css";
 import Loader from "../../../Components/Loader/Loader";
 
 const Questions = () => {
+  const navigate = useNavigate();
   // 🔹 Get role from Redux
   const { role } = useSelector((state) => state.auth);
 
@@ -176,9 +177,7 @@ const Questions = () => {
                       <td className="action-buttons">
                         <button
                           className="edit-btn"
-                          onClick={() =>
-                            console.log("Edit question:", q._id)
-                          }
+                          onClick={() => navigate(`/dashboard/edit-question/${q._id}`)}
                         >
                           Edit
                         </button>

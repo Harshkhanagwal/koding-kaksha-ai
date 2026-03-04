@@ -2,16 +2,18 @@ const express = require("express");
 const router = express.Router();
 const questionController = require("../controllers/question.Controller");
 const runTestcases = require("../controllers/compiler.Controller")
+const { authenticateUser, lecturerMiddleware, adminMiddleware } = require("../middlewares/rbac");
 
 
-router.post("/add", questionController.createQuestion);
-router.get("/all", questionController.getAllQuestions);
-router.get("/details/:id", questionController.getQuestionById);
-router.put("/update/:id", questionController.updateQuestion);
-router.delete("/delete/:id", questionController.deleteQuestion);
-router.post("/compile", runTestcases );
+router.post("/add", authenticateUser, lecturerMiddleware, questionController.createQuestion);
+router.get("/all", authenticateUser, questionController.getAllQuestions);
+router.get("/details/:id", authenticateUser, questionController.getQuestionById);
+router.get("/edit/:id", authenticateUser, adminMiddleware, questionController.getQuestionForEdit);
+router.put("/update/:id", authenticateUser, adminMiddleware, questionController.updateQuestion);
+router.delete("/delete/:id", authenticateUser, adminMiddleware, questionController.deleteQuestion);
+router.post("/compile", authenticateUser, runTestcases );
 
-router.post("/demo-compile", async (req, res) => {
+router.post("/demo-compile", authenticateUser, async (req, res) => {
   try {
     const { id, code, language } = req.body;
 

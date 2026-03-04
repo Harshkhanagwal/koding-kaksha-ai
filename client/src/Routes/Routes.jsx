@@ -45,6 +45,7 @@ const AppRoutes = () => {
         <Route path='create-notes' element={<CreateNotes />} />
         <Route path='edit-notes/:id' element={<CreateNotes />} />
         <Route path='questions' element={<Questions />} />
+        <Route path='edit-question/:id' element={<CreateQuestions />} />
         <Route path='notes/:id' element={<NotesContent></NotesContent>} />
         <Route path='upload-question' element={<CreateQuestions/> }/>
 

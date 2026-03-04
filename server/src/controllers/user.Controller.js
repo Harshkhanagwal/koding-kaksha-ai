@@ -2,6 +2,8 @@
 const User = require('../models/userModel')
 const bcrypt = require('bcryptjs')
 
+const isPrivilegedRole = (role) => role === "admin" || role === "superAdmin";
+
 const sayHii  = (req, res) => {
     res.status(200).json({
       message : "hello from user API"
@@ -28,6 +30,13 @@ const allUsers = async (req, res) => {
 const createUser = async (req, res) => {
     try {
       const {name, email, password , role , isReadOnly} = req.body
+
+      if (req.user?.role === "admin" && isPrivilegedRole(role)) {
+        return res.status(403).json({
+          message: "Admin cannot create admin or superAdmin users"
+        });
+      }
+
       const existinguser = await User.findOne({email})
       if(existinguser) {
         return res.status(400).json({
@@ -64,6 +73,26 @@ const updateUser = async (req, res) => {
       return res.status(404).json({
         message: "User not found"
       });
+    }
+
+    if (req.user?.role === "admin") {
+      if (isPrivilegedRole(user.role)) {
+        return res.status(403).json({
+          message: "Admin cannot update admin or superAdmin users"
+        });
+      }
+
+      if (role && isPrivilegedRole(role)) {
+        return res.status(403).json({
+          message: "Admin cannot promote user to admin or superAdmin"
+        });
+      }
+
+      if (isReadOnly !== undefined) {
+        return res.status(403).json({
+          message: "Only superAdmin can update read-only mode"
+        });
+      }
     }
 
     if (email && email !== user.email) {
@@ -103,6 +132,41 @@ const updateUser = async (req, res) => {
   }
 };
 
+const updateUserReadOnly = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { isReadOnly } = req.body;
+
+    if (typeof isReadOnly !== "boolean") {
+      return res.status(400).json({
+        message: "isReadOnly must be boolean"
+      });
+    }
+
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({
+        message: "User not found"
+      });
+    }
+
+    user.isReadOnly = isReadOnly;
+    await user.save();
+
+    const userRes = user.toObject();
+    delete userRes.password;
+
+    return res.status(200).json({
+      success: true,
+      data: userRes
+    });
+  } catch (err) {
+    return res.status(500).json({
+      message: err.message
+    });
+  }
+};
+
 const deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -112,6 +176,12 @@ const deleteUser = async (req, res) => {
     if (!user) {
       return res.status(404).json({
         message: "User not found"
+      });
+    }
+
+    if (req.user?.role === "admin" && isPrivilegedRole(user.role)) {
+      return res.status(403).json({
+        message: "Admin cannot delete admin or superAdmin users"
       });
     }
 
@@ -130,5 +200,5 @@ const deleteUser = async (req, res) => {
 };
 
 module.exports = {
-    sayHii, allUsers, createUser, deleteUser, updateUser
+    sayHii, allUsers, createUser, deleteUser, updateUser, updateUserReadOnly
 }

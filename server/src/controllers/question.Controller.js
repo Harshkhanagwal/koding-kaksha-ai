@@ -44,7 +44,30 @@ getAllQuestions = async (req, res) => {
 getQuestionById = async (req, res) => {
   try {
     const question = await Question.findById(req.params.id)
-      .select("-testcases"); // hide testcases
+      .select("-testcases"); 
+    if (!question) {
+      return res.status(404).json({
+        success: false,
+        message: "Question not found"
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: question
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+getQuestionForEdit = async (req, res) => {
+  try {
+    const question = await Question.findById(req.params.id);
 
     if (!question) {
       return res.status(404).json({
@@ -125,5 +148,5 @@ deleteQuestion = async (req, res) => {
 };
 
 module.exports = {
-    createQuestion, getAllQuestions, getQuestionById, updateQuestion, deleteQuestion
+    createQuestion, getAllQuestions, getQuestionById, getQuestionForEdit, updateQuestion, deleteQuestion
 }

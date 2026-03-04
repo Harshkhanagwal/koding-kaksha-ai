@@ -3,6 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../features/auth/authSlice";
 import { useNavigate } from "react-router-dom";
 
+const demoUsers = [
+  { label: "Admin", email: "demo.admin@kkai.com" },
+  { label: "Lecturer", email: "demo.lecturer@kkai.com" },
+  { label: "Student", email: "demo.student@kkai.com" },
+];
+
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -21,6 +27,13 @@ const Login = () => {
       ...prev,
       [name]: value,
     }));
+  };
+
+  const handleDemoFill = (email) => {
+    setFormData({
+      email,
+      password: "12345678",
+    });
   };
     
     const handleSubmit = async (e) => {
@@ -84,9 +97,23 @@ const Login = () => {
           )}
         </form>
 
-        <p className="login-footer">
-          Don't have an account? <span>Register</span>
-        </p>
+        <div className="demo-credentials">
+          <h4>Demo Access</h4>
+          <p>Use any demo email with password: <b>12345678</b></p>
+          <div className="demo-list">
+            {demoUsers.map((demo) => (
+              <button
+                key={demo.email}
+                type="button"
+                className="demo-item"
+                onClick={() => handleDemoFill(demo.email)}
+              >
+                <span>{demo.label}</span>
+                <small>{demo.email}</small>
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
