@@ -59,7 +59,7 @@ app.get("/", (req, res) => {
 app.use("/api", routes);
 app.use("/auth", authRoutes);
 
-// app.use(notFound);
-// app.use(errorHandler);
+app.use(notFound);
+app.use(errorHandler);
 
 module.exports = app;
